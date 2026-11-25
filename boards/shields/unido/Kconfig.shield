@@ -1,0 +1,3 @@
+# boards/shields/unido/Kconfig.shield
+config SHIELD_UNIDO
+    def_bool $(shields_list_contains,unido)

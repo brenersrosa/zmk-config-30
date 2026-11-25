@@ -1,0 +1,21 @@
+/* unido.keymap — KEYMAP DE TESTE da fiação.
+   Cada tecla digita um caractere diferente, em ordem: lendo o teclado de cima para baixo,
+   da esquerda para a direita, deve sair:  abcdefgh / ijklmnop / qrstuvwx / polegares: y z 1 2 3 4
+   Se alguma tecla digitar a letra errada, ou duas teclas digitarem a mesma, há erro de linha/coluna. */
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+        teste {
+            bindings = <
+    &kp A &kp B &kp C &kp D            &kp E &kp F &kp G &kp H
+    &kp I &kp J &kp K &kp L            &kp M &kp N &kp O &kp P
+    &kp Q &kp R &kp S &kp T            &kp U &kp V &kp W &kp X
+              &kp Y &kp Z &kp N1      &kp N2 &kp N3 &kp N4
+            >;
+        };
+    };
+};

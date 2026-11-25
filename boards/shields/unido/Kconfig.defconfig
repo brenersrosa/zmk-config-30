@@ -1,0 +1,5 @@
+# boards/shields/unido/Kconfig.defconfig
+if SHIELD_UNIDO
+config ZMK_KEYBOARD_NAME
+    default "Unido"
+endif
