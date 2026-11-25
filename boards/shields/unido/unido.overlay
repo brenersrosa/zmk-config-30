@@ -1,7 +1,9 @@
 /* boards/shields/unido/unido.overlay — teclado unido 30 teclas, matriz ÚNICA 4 linhas x 8 colunas, 1 ProMicro nRF52840
-   linhas compartilhadas pelas duas mãos; C0..C3 = esquerda (de fora p/ dentro), C4..C7 = direita (de dentro p/ fora)
-   polegares: LT1=C3 LT2=C2 LT3=C1 | RT1=C4 RT2=C5 RT3=C7  (todos na linha R3)
-   pinos livres: 104 106 115 031 029 002 (031/029/002 são analógicos) */
+   Linhas compartilhadas pelas duas mãos. Colunas na ordem física, da esquerda para a direita:
+     mão esquerda C0..C3 (de fora p/ dentro) | mão direita C4..C7 (de dentro p/ fora)
+   Polegares (linha R3), da esquerda para a direita: C1 C2 C3 | C4 C5 C6
+   Pinos livres: 104 106 115 031 029 002 (031/029/002 são analógicos)
+   009 e 010 são pinos de NFC: exigem CONFIG_NFCT_PINS_AS_GPIOS=y (em unido.conf) */
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
@@ -18,7 +20,7 @@
             RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6) RC(0,7)
             RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5) RC(1,6) RC(1,7)
             RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6) RC(2,7)
-                        RC(3,3) RC(3,2) RC(3,1)   RC(3,7) RC(3,5) RC(3,4)
+                        RC(3,1) RC(3,2) RC(3,3)   RC(3,4) RC(3,5) RC(3,6)
         >;
     };
 
@@ -33,14 +35,14 @@
             , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   /* 011 R3 (polegares) */
             ;
         col-gpios
-            = <&pro_micro 1 GPIO_ACTIVE_HIGH>    /* 006 C0 */
-            , <&pro_micro 0 GPIO_ACTIVE_HIGH>    /* 008 C1 */
-            , <&pro_micro 2 GPIO_ACTIVE_HIGH>    /* 017 C2 */
-            , <&pro_micro 3 GPIO_ACTIVE_HIGH>    /* 020 C3 */
-            , <&pro_micro 16 GPIO_ACTIVE_HIGH>   /* 010 C4 */
-            , <&pro_micro 14 GPIO_ACTIVE_HIGH>   /* 111 C5 */
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   /* 113 C6 */
-            , <&pro_micro 10 GPIO_ACTIVE_HIGH>   /* 009 C7 (fio soldado no 009, não no 115) */
+            = <&pro_micro 1 GPIO_ACTIVE_HIGH>    /* 006 C0 esq. mindinho */
+            , <&pro_micro 0 GPIO_ACTIVE_HIGH>    /* 008 C1 esq. anelar */
+            , <&pro_micro 2 GPIO_ACTIVE_HIGH>    /* 017 C2 esq. médio */
+            , <&pro_micro 3 GPIO_ACTIVE_HIGH>    /* 020 C3 esq. indicador */
+            , <&pro_micro 10 GPIO_ACTIVE_HIGH>   /* 009 C4 dir. indicador */
+            , <&pro_micro 16 GPIO_ACTIVE_HIGH>   /* 010 C5 dir. médio */
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>   /* 111 C6 dir. anelar */
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>   /* 113 C7 dir. mindinho */
             ;
     };
 };
