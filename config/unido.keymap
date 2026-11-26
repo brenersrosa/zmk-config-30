@@ -9,7 +9,7 @@
  * Polegares (toque / segurar): Esc/MED  Espaço/MOU  Tab/NAV | Bksp/NUM  Enter/SYM  Del/FUN
  *
  * A coluna interna do Cheapino (T G B / Y H N) virou combos HORIZONTAIS, iguais em todas as camadas:
- *   T = E+R   G = D+F   B = C+V      Y = I+O   H = J+K   N = M+,
+ *   T = E+R   G = D+F   B = C+V      Y = U+I   H = J+K   N = M+,
  * Em cada camada o combo digita o que estava naquela posição no Cheapino (ex.: na SYM, R+F = @).
  * NAV e MOUSE: as setas/rolagem andaram uma coluna para fora (HJKL -> JKL;), sem perder nada.
  */
@@ -34,7 +34,7 @@
 #define P_T 2 3
 #define P_G 10 11
 #define P_B 18 19
-#define P_Y 5 6
+#define P_Y 4 5
 #define P_H 12 13
 #define P_N 20 21
 
@@ -82,7 +82,6 @@
 
         /* combos que já existiam no Cheapino */
         combo_esc { timeout-ms = <50>; require-prior-idle-ms = <150>; key-positions = <1 2>; bindings = <&kp ESC>;  layers = <BASE>; };
-        combo_del { timeout-ms = <50>; require-prior-idle-ms = <150>; key-positions = <4 5>; bindings = <&kp DEL>;  layers = <BASE>; };
         combo_gui { timeout-ms = <50>; require-prior-idle-ms = <150>; key-positions = <8 9>; bindings = <&kp LGUI>; layers = <BASE>; };
 
         /* coluna interna das outras camadas */
